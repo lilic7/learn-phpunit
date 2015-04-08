@@ -9,7 +9,9 @@
         <?php
             $path = __DIR__."\\tests\\modules\\Docx\\files\\SIGUR DE CALIFICARE.docx";
             $docx = new \Docx\Docx($path);
-            echo "<textarea>".$docx->getContent()."</textarea>";
+            $content = $docx->getContent();
+            $article = new \Article\ArticleSeparator($content);
+            echo "<textarea>".$docx->getContent()."</textarea>".$article->getTitle()."<textarea>".$article->getIntro()."</textarea>"."<textarea>".$article->getBeta()."</textarea>";
         ?>
     </body>
 </html>
